@@ -2,9 +2,9 @@ CPP = g++
 CPPFLAGS = -pedantic -Wall -g -DMAP
 INT = Lesson.h
 REAL = $(INT:.h=.cpp) App.cpp
-EXE = VocaApp.exe
+EXE = VocaApp
 ECHO = @echo
-RM = del
+RM = rm
 
 all:
 	$(ECHO) "- all     : display this message"

@@ -22,7 +22,7 @@ Lesson::~Lesson()
 #endif
 }
 
-streampos Lesson::Add(ifstream &file, streampos currentPos)
+streampos Lesson::add(ifstream &file, streampos currentPos)
 {
     file.seekg(currentPos);
     string line;
@@ -34,13 +34,43 @@ streampos Lesson::Add(ifstream &file, streampos currentPos)
         {
             break;
         }
-        //cout << line << endl;
-        vector<string> words = Split(line, DELIMITER);
-        cout << words.front() << endl; //" " << words.at(1) << " " << words.at(2) << endl;
-        string w = words.at(1);
-        cout << w << endl;  
+        vector<string> w = split(line, DELIMITER);
+        Word newWord;
+        newWord.landBase = w.front();
+        newWord.translate1 = w.at(1);
+        newWord.translate2 = w.at(2);
+        words.push_back(newWord);
     }
     return file.tellg();
+}
+
+vector<string> Lesson::split(string strToSplit, char delimiter)
+{
+    stringstream ss(strToSplit);
+    string item;
+    vector<string> splittedString;
+    while(getline(ss, item, delimiter))
+    {
+        splittedString.push_back(item);
+    }
+    return splittedString;
+}
+
+int Lesson::nbElements()
+{
+    return words.size();
+}
+
+void Lesson::askElement(int index)
+{
+    cout << "What is the translation of <" << words.at(index).landBase << "> in " << toLang << endl;
+    string s;
+    cin >> s;
+    if(s == words.at(index).translate1 || s == words.at(index).translate2)
+        cout << "Good" << endl;
+    else
+        cout << "Bad" << endl;
+    cout << "Answer : " << words.at(index).translate1 << "   " << words.at(index).translate2 << endl;
 }
 
 bool operator<(const Lesson &a, const Lesson &b)
@@ -52,16 +82,4 @@ ostream& operator<<(ostream &os, Lesson const &lesson)
 {
     os << lesson.langBase << " to " << lesson.toLang << ", Lesson number " << lesson.lessonNumber;
     return os;
-}
-
-vector<string> Lesson::Split(string strToSplit, char delimiter)
-{
-    stringstream ss(strToSplit);
-    string item;
-    vector<string> splittedString;
-    while(getline(ss, item, delimiter))
-    {
-        splittedString.push_back(item);
-    }
-    return splittedString;
 }

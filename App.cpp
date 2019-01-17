@@ -1,4 +1,5 @@
 #include <string>
+#include <set>
 #include <cstring>
 #include <fstream>
 #include <iostream>
@@ -19,17 +20,18 @@ int main()
         if(strcmp(langBase.c_str(),"0") == 0)
             break;
         
-        cout << langBase << " " << toLang << " " << number << endl;
+        //cout << langBase << " " << toLang << " " << number << endl;
         Lesson* newLesson = new Lesson(langBase, toLang, number);
-        file.seekg(newLesson->Add(file, file.tellg()));
+        file.seekg(newLesson->add(file, file.tellg()));
         lessonSet.insert(newLesson);
     }
-    /*
+    
     set<Lesson*>::const_iterator it;
     for(it = lessonSet.begin(); it != lessonSet.end(); ++it)
     {
-        cout << *it << endl;
-    }*/
+        cout << **it << endl;
+        (*it)->askElement(1);
+    }
 
     return 0;
 }
