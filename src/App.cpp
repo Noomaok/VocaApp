@@ -3,6 +3,8 @@
 #include <cstring>
 #include <fstream>
 #include <iostream>
+
+#include "MenuHandler.h"
 #include "Lesson.h"
 
 using namespace std;
@@ -37,12 +39,8 @@ int main(int argc, char const *argv[])
         lessonSet.insert(newLesson);
     }
     
-    set<Lesson*>::const_iterator it;
-    for(it = lessonSet.begin(); it != lessonSet.end(); ++it)
-    {
-        cout << **it << endl;
-        (*it)->askElement(1);
-    }
-
+    MenuHandler mh(lessonSet);
+    mh.mainMenu();
+    
     return 0;
 }
