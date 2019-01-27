@@ -7,11 +7,23 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char const *argv[])
 {
-    set<Lesson*> lessonSet;
-    string loadfile = "template";
+    if(argc < 2)
+    {
+        cerr << "Error : no file provided" << endl;
+        return 1;
+    }
+
+    string loadfile = argv[1];
     ifstream file(loadfile);
+    if(!file.is_open())
+    {
+        cerr << "Error : file given couldn't be open" << endl;
+        return 2;
+    }
+    
+    set<Lesson*> lessonSet;
     string langBase, toLang;
     int number;
     while(true)
@@ -20,7 +32,6 @@ int main()
         if(strcmp(langBase.c_str(),"0") == 0)
             break;
         
-        //cout << langBase << " " << toLang << " " << number << endl;
         Lesson* newLesson = new Lesson(langBase, toLang, number);
         file.seekg(newLesson->add(file, file.tellg()));
         lessonSet.insert(newLesson);

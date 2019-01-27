@@ -1,9 +1,9 @@
-CPP = g++
+CPP = @g++
 CPPFLAGS = -pedantic -Wall -g -DMAP
-INT = Lesson.h
-REAL = $(INT:.h=.cpp) App.cpp
-EXE = VocaApp
+REAL = $(wildcard src/*.cpp)
+EXE = bin/VocaApp
 ECHO = @echo
+MKDIR = @mkdir
 RM = rm
 
 all:
@@ -12,13 +12,15 @@ all:
 	$(ECHO) "- release : build the release version"
 	$(ECHO) "- clean   : delete generate files"
 
-debug: 
+debug:
+	$(MKDIR) -p bin
 	$(ECHO) "Compilation version debug de <$(EXE)>"
-	$(CPP) $(CPPFLAGS) -o $(EXE) $(INT) $(REAL)
+	$(CPP) $(CPPFLAGS) -o $(EXE) $(REAL)
 
 release: 
+	$(MKDIR) -p bin
 	$(ECHO) "Compilation version release de <$(EXE)>"
-	$(CPP) -o $(EXE) $(INT) $(REAL)
+	$(CPP) -o $(EXE) $(REAL)
 
 clean:
 	$(RM) $(EXE)
