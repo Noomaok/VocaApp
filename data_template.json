@@ -1,0 +1,36 @@
+[
+    {
+        "languageFrom" : "langague1",
+        "languageTo" : "langague2",
+        "lessonNumber" : 1,
+        "words" : [
+            {
+                "origin" : "something",
+                "translate_1" : "trad1",
+                "translate_2" : "trad2"
+            },
+            {
+                "origin" : "other",
+                "translate_1" : "trad1",
+                "translate_2" : "trad2"
+            }
+        ]
+    },
+    {
+        "languageFrom" : "langague1",
+        "languageTo" : "langague2",
+        "lessonNumber" : 2,
+        "words" : [
+            {
+                "origin" : "something",
+                "translate_1" : "trad1",
+                "translate_2" : "trad2"
+            },
+            {
+                "origin" : "other",
+                "translate_1" : "trad1",
+                "translate_2" : "trad2"
+            }
+        ]
+    }
+]
