@@ -26,7 +26,7 @@ def main():
         for i in range(0, len(lessonData)):
             print("\n---------------------------\n" + lessonFrom + " : " + lessonData[i]["origin"])
             rep = input(lessonTo + " : ")
-            if rep == lessonData[i]["translate_1"] or rep == lessonData[i]["translate_2"]:
+            if rep == lessonData[i]["translate_1"] or (rep == lessonData[i]["translate_2"] and lessonData[i]["translate_2"] != ""):
                 print("Correct answer")
                 correctRep += 1
             else:
