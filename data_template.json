@@ -6,13 +6,17 @@
         "words" : [
             {
                 "origin" : "something",
-                "translate_1" : "trad1",
-                "translate_2" : "trad2"
+                "translate" : [
+                    "trad_1",
+                    "trad_2"
+                ]
             },
             {
                 "origin" : "other",
-                "translate_1" : "trad1",
-                "translate_2" : "trad2"
+                "translate" : [
+                    "trad_1",
+                    "trad_2"
+                ]
             }
         ]
     },
@@ -23,13 +27,17 @@
         "words" : [
             {
                 "origin" : "something",
-                "translate_1" : "trad1",
-                "translate_2" : "trad2"
+                "translate" : [
+                    "trad_1",
+                    "trad_2"
+                ]
             },
             {
                 "origin" : "other",
-                "translate_1" : "trad1",
-                "translate_2" : "trad2"
+                "translate" : [
+                    "trad_1",
+                    "trad_2"
+                ]
             }
         ]
     }

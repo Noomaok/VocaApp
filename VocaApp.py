@@ -26,12 +26,16 @@ def main():
         for i in range(0, len(lessonData)):
             print("\n---------------------------\n" + lessonFrom + " : " + lessonData[i]["origin"])
             rep = input(lessonTo + " : ")
-            if rep == lessonData[i]["translate_1"] or (rep == lessonData[i]["translate_2"] and lessonData[i]["translate_2"] != ""):
+
+            if rep in lessonData[i]["translate"]:
                 print("Correct answer")
                 correctRep += 1
             else:
                 print("Wrong answer")
-                print("Correction : " + lessonData[i]["translate_1"] + " | " + lessonData[i]["translate_2"])
+                res = ""
+                for translate in lessonData[i]["translate"]:
+                    res += " " + translate
+                print("Correction :"+res)
         
         percent = correctRep / len(lessonData) * 100
         print("\n---------------------------\nOverall result : " + str(round(percent)) + " % good answers")
