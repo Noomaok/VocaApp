@@ -6,7 +6,7 @@ def main():
         print("\nSelect a lesson :")
 
         for i in range(0, len(data)):
-            print(str(i) + " - Lesson " + str(data[i]["lessonNumber"]) + " | " + data[i]["languageFrom"] + " to " + data[i]["languageTo"])
+            print(str(i+1) + " - Lesson " + str(data[i]["lessonNumber"]) + " | " + data[i]["languageFrom"] + " to " + data[i]["languageTo"])
 
         correctNumber = False
         while not correctNumber:
@@ -18,9 +18,9 @@ def main():
                 print("Selection incorrect")
 
 
-        lessonFrom = data[int(numberSelect)]["languageFrom"]
-        lessonTo = data[int(numberSelect)]["languageTo"]
-        lessonData = data[int(numberSelect)]["words"]
+        lessonFrom = data[int(numberSelect)-1]["languageFrom"]
+        lessonTo = data[int(numberSelect)-1]["languageTo"]
+        lessonData = data[int(numberSelect)-1]["words"]
 
         correctRep = 0
         for i in range(0, len(lessonData)):
