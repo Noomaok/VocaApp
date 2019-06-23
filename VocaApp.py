@@ -1,4 +1,5 @@
 import json
+import random
 
 def main(): 
     inMenu = True
@@ -23,6 +24,7 @@ def main():
         lessonData = data[int(numberSelect)-1]["words"]
 
         correctRep = 0
+        random.shuffle(lessonData)
         for i in range(0, len(lessonData)):
             print("\n---------------------------\n" + lessonFrom + " : " + lessonData[i]["origin"])
             rep = input(lessonTo + " : ")
